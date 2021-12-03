@@ -31,6 +31,14 @@
 
     <p>Vous avez demandé la page <code><?php echo $page; ?></code>.</p>
 
+<!--    <p>-->
+<!--        --><?php
+//        echo "Vous avez demandé la page $page, merci.";
+//        echo "Vous avez demandé la page " . $page . ", merci.";
+//        printf('<p>Vous avez demandé la page %s, merci %s.</p>', $page, "Alex");
+//        ?>
+<!--    </p>-->
+
     <?php
     // si $page est egale a contact
     // alors j'inclue le fichier contact.php depuis le dossier pages/
@@ -42,6 +50,7 @@
     } else {
         require 'pages/homepage.php';
     }
+
     ?>
 </main>
 
