@@ -18,7 +18,7 @@ $newsletter = true;
  * @param bool $isFemale true si jamais la personne est une femme, false si c'est un homme
  * @return string prénom + nom en majuscule
  */
-function format(string $name, string $firstname, bool $isFemale = false): string
+function format(string $name, string $firstname, bool $isFemale): string
 {
     if ($isFemale) {
         $civility = 'Madame';
