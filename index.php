@@ -19,25 +19,33 @@
         </ul>
     </nav>
 </header>
-
 <main>
     <?php
     // récupérer dynamiquement le type de page que l'on récupère de l'URL
     // http://localhost:8080/?page=contact
     // $_GET['page'] => "contact"
-    $page = $_GET['page'];
     // $page = "contact"
+    //    print_r($_GET);
+    //    $_GET = [
+    //        'page' => 'contact'
+    //    ];
+
+    if (array_key_exists('page', $_GET)) {
+        $page = $_GET['page'];
+    } else {
+        $page = '';
+    }
     ?>
 
     <p>Vous avez demandé la page <code><?php echo $page; ?></code>.</p>
 
-<!--    <p>-->
-<!--        --><?php
-//        echo "Vous avez demandé la page $page, merci.";
-//        echo "Vous avez demandé la page " . $page . ", merci.";
-//        printf('<p>Vous avez demandé la page %s, merci %s.</p>', $page, "Alex");
-//        ?>
-<!--    </p>-->
+    <!--    <p>-->
+    <!--        --><?php
+    //        echo "Vous avez demandé la page $page, merci.";
+    //        echo "Vous avez demandé la page " . $page . ", merci.";
+    //        printf('<p>Vous avez demandé la page %s, merci %s.</p>', $page, "Alex");
+    //        ?>
+    <!--    </p>-->
 
     <?php
     // si $page est egale a contact

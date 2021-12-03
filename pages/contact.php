@@ -28,9 +28,16 @@ function isOfAge(int $age): string
 //echo isOfAge(235);
 //echo isOfAge(4);
 
-function format(string $firstname, string $lastname): string
+function format(string $firstname, string $lastname, bool $isFemale): string
 {
-    return "<p>Bonjour $firstname" . " " . strtoupper($lastname) . ",</p>";
+    if ($isFemale) {
+        $civility = "Madame";
+    } else {
+        $civility = "Monsieur";
+    }
+
+    return "<p>Bonjour $civility $firstname" . " " . strtoupper($lastname) . ",</p>";
 }
 
-echo format('Alex', 'Soyer');
+echo format('Alex', 'Soyer', false);
+echo format('Marie', 'Soyer', true);
