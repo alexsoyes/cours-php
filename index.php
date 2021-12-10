@@ -22,6 +22,9 @@
             <li>
                 <a href="/?page=contact">Contactez-moi</a>
             </li>
+            <li>
+                <a href="/?page=subscription">Abonnement</a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -29,7 +32,7 @@
 <main>
     <?php if (array_key_exists('page', $_GET)): ?>
         <?php
-        // http:://localhost?page=contact
+        // http:://localhost:8080?page=contact
         /**
          * Ici on cherche à inclure dynamiquement une page
          * en fonction de la variable page dans l'URL.
@@ -60,6 +63,9 @@
          * Ou un swtich !
          */
         switch ($page) {
+            case 'subscription':
+                require './pages/subscription.php';
+                break;
             case 'contact':
                 require './pages/contact.php';
                 break;

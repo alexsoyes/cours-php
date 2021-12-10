@@ -124,6 +124,13 @@ $families = [
     'mother' => 'Marie',
 ];
 
+if (array_key_exists('mother', $families)) {
+
+    $mother = $families['mother'];
+
+
+}
+
 echo "<pre>";
 print_r($families);
 echo "</pre>";
