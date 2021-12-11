@@ -1,3 +1,78 @@
+<h2>Vos séries Netflix du moment</h2>
+
+<ul>
+    <li>Arcane</li>
+    <li>Squid Game</li>
+    <li>Brooklin 99</li>
+</ul>
+
+<ul>
+    <?php
+    $maListeDeSeries = ['Arcane', 'Squid Game', 'Brooklyn 99'];
+
+    foreach ($maListeDeSeries as $laSerieEnQuestion) {
+        echo "<li>$laSerieEnQuestion</li>";
+    }
+    ?>
+</ul>
+
+<h2>Films préférés</h2>
+
+<?php
+$filmsPreferes = [
+    [
+        'name' => 'Pokémon Le Film',
+        'date' => 1999,
+        'actors' => ['Sacha', 'Pierre', 'Ondine']
+    ],
+    [
+        'name' => 'Pokémon 2',
+        'date' => 2002,
+        'actors' => ['Sacha', 'Pierre', 'Ondine']
+    ],
+];
+?>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Sortie</th>
+        <th>Acteurs</th>
+    </tr>
+    </thead>
+    <?php foreach ($filmsPreferes as $film): ?>
+    <tr>
+        <td><?php echo $film['name']; ?></td>
+        <td><?php echo $film['date']; ?></td>
+        <td>
+            <?php foreach ($film['actors'] as $actor) {
+              echo "$actor, ";
+            }
+            ?>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Sortie</th>
+        <th>Acteurs</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>Pokémon le film</td>
+        <td>1999</td>
+        <td>Sacha, Online, Pierre</td>
+    </tr>
+</table>
+
+
 <h1>A propos de moi</h1>
 
 <h2>Membre de ma famille (tableau associatif - clef/valeur)</h2>
@@ -5,15 +80,60 @@
 <?php
 $families = [
     'brothers' => [
-        'Tom',
+        'Tom' => [
+            'names' => [
+                'first' => '',
+                'second' => '',
+                'third' => '',
+            ]
+        ],
         'Ben',
     ],
     'sisters' => [
         'Liz'
     ],
-    'mother' => 'Marie'
+    'mother' => 'Marie',
+    'father' => ['orange', 'tofu'],
+];
+
+$families['father'] = ['orange', 'tofu'];
+
+if (array_key_exists('first', $families['brothers']['Tom']['names'])) {
+    $firstname = $families['brothers']['Tom']['names']['first'];
+}
+
+
+$teamsFoot = ['Paris', 'Marseille', 'Lyon'];
+$teamNba = ['warriors', 'lakers', 'spyrs'];
+$allTeams = [];
+
+foreach ($teamsFoot as $team) {
+    $allTeams[] = $team;
+}
+
+printf('je suis %s', 'alex');
+?>
+
+<pre>
+    <?php print_r($allTeams); ?>
+</pre>
+
+<?php
+
+$allTeams = [];
+
+$allTeams = [
+    ...$teamsFoot,
+    $teamsFoot[0],
+    $teamsFoot[1],
+    $teamsFoot[2],
+    ...$teamNba
 ];
 ?>
+
+<pre>
+    <?php print_r($allTeams); ?>
+</pre>
 
 <ul>
     <li>Mon premier frère : <?php echo $families['brothers'][0]; ?></li>
@@ -35,14 +155,14 @@ $families = [
 
 <?php
 $food = [
-    'oranges',
-    'tofu',
-    'pâtes',
+    'oranges', // 0
+    'tofu', // 1
+    'pâtes', // 2
     'riz',
     'salade',
     'croissants aux amandes',
     'côté de boeuf',
-    'Kinders',
+    'Kinders', // 7
 ];
 ?>
 
@@ -61,7 +181,19 @@ printf("<p>J'ai %s aliments à acheter.</p>", $foodCount);
 
 <ul>
     <?php
-    for ($i = 0; $i < count($food); $i++) {
+    // 0 $aliment = $food[0] // oranges
+    // 1 $aliment = $food[1] // tofu
+    // 7 $aliment = $food[7] // Kinders
+    // 0 < 8
+    // 1 < 8
+    // 7 < 8
+    // 8 < 8 ===> sort de la boucle
+    for ($i = 0; $i < $foodCount; $i++) {
+        $aliment = $food[$i];
+        echo "<li>" . $aliment . "</li>\n";
+    }
+
+    for ($i = $foodCount - 1; $i >= 0; $i--) {
         $aliment = $food[$i];
         echo "<li>" . $aliment . "</li>\n";
     }
@@ -72,7 +204,10 @@ printf("<p>J'ai %s aliments à acheter.</p>", $foodCount);
 
 <ul>
     <?php
-    // ['oranges', 'tofu', ...] = 0: oranges => $aliment
+    // ['oranges', 'tofu', ...]
+    // $food[0] = $aliment // oranges
+    // $food[1] = $aliment // tofu
+    // ...
     foreach ($food as $aliment) {
         echo "<li>" . $aliment . "</li>\n";
     }
