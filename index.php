@@ -14,6 +14,7 @@
     <nav>
         <ul>
             <li><a href="/">Accueil</a></li>
+<!--            <li><a href="/pages/homepage.php">Accueil</a></li>-->
             <li><a href="/?page=about">À propos</a></li>
             <li><a href="/?page=contact">Contactez-moi</a></li>
             <li><a href="/?page=subscription">Abonnement</a></li>
