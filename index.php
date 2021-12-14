@@ -16,6 +16,7 @@
             <li><a href="/">Accueil</a></li>
             <li><a href="/?page=about">À propos</a></li>
             <li><a href="/?page=contact">Contactez-moi</a></li>
+            <li><a href="/?page=subscription">Abonnement</a></li>
         </ul>
     </nav>
 </header>
@@ -55,6 +56,8 @@
         require 'pages/contact.php';
     } elseif ($page == "about") {
         require 'pages/about.php';
+    } elseif ($page === "subscription") {
+        require './pages/subscription.php';
     } else {
         require 'pages/homepage.php';
     }
