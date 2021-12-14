@@ -2,6 +2,24 @@
 
 <p>Je suis une page de contact.</p>
 
+<form action="" method="post">
+    <label for="_email">Email</label>
+    <input type="email" name="email" id="_email" value="email@test.fr" required>
+
+    <label for="_text">Message</label>
+    <textarea name="text" id="_text" cols="30" rows="10" required>test</textarea>
+    <input type="submit" value="Envoyer">
+</form>
+
+
+<?php
+
+if (array_key_exists('email', $_POST)) {
+    echo "<p>Votre email est : " . $_POST['email'] . "</p>";
+}
+
+?>
+
 <?php
 
 $firstname = "Alex";
