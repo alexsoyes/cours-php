@@ -67,6 +67,8 @@
         //        require './pages/homepage.php';
         //    }
 
+        require './utils/database.php';
+
         /**
          * Ou un swtich !
          */

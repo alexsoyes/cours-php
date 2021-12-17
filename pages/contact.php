@@ -2,7 +2,6 @@
 
 <p>Nouvelle demande de contact.</p>
 
-
 <form action="" method="post">
     <label>Email
         <input type="email" name="email">
@@ -14,9 +13,40 @@
     <input type="submit" value="Envoyer">
 </form>
 
+<h2>Liste des demandes de contact</h2>
+
 <?php
-var_dump($_POST);
+
+$dbh = getDatabaseConnection();
+
+$sth = $dbh->prepare('SELECT * FROM epsi.contact');
+$sth->execute();
+
+$mesDemandesDeContact = $sth->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>message</th>
+        <th>newsletter</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($mesDemandesDeContact as $contact): ?>
+    <tr>
+        <td><?php echo $contact['id']; ?></td>
+        <td><?php echo $contact['name']; ?></td>
+        <td><?php echo $contact['email']; ?></td>
+        <td><?php echo $contact['message']; ?></td>
+        <td><?php echo $contact['newsletter']; ?></td>
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
 
 <?php
 
