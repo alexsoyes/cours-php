@@ -14,6 +14,10 @@
 
 <?php
 
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+
 if (array_key_exists('email', $_POST)) {
     echo "<p>Votre email est : " . $_POST['email'] . "</p>";
 }
