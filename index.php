@@ -53,6 +53,8 @@
     // si $page est egale a contact
     // alors j'inclue le fichier contact.php depuis le dossier pages/
 
+    require './utils/database.php';
+
     if ($page == "contact") {
         require 'pages/contact.php';
     } elseif ($page == "about") {

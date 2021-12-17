@@ -11,6 +11,39 @@
     <input type="submit" value="Envoyer">
 </form>
 
+<h2>Liste des demandes</h2>
+
+<?php
+$dbh = getDatabaseConnection();
+
+$sth = $dbh->prepare("SELECT * FROM epsi.contact");
+$sth->execute();
+
+$contactsList = $sth->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>message</th>
+        <th>newsletter</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($contactsList as $contact): ?>
+        <tr>
+            <td><?php echo $contact['id']; ?></td>
+            <td><?php echo $contact['name']; ?></td>
+            <td><?php echo $contact['email']; ?></td>
+            <td><?php echo $contact['message']; ?></td>
+            <td><?php echo $contact['newsletter']; ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
 
 <?php
 
