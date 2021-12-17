@@ -2,6 +2,22 @@
 
 <p>Nouvelle demande de contact.</p>
 
+
+<form action="" method="post">
+    <label>Email
+        <input type="email" name="email">
+    </label>
+
+    <label>Message
+        <textarea name="text" cols="30" rows="10" required></textarea>
+    </label>
+    <input type="submit" value="Envoyer">
+</form>
+
+<?php
+var_dump($_POST);
+?>
+
 <?php
 
 $name = "Soyer";
@@ -26,10 +42,10 @@ function format(string $name, string $firstname, bool $isFemale): string
         $civility = 'Monsieur';
     }
 
-    return 'Bonjour' . ' ' . $civility . ' ' .  $firstname . ' ' . strtoupper($name) . ',';
+    return '<p>Bonjour' . ' ' . $civility . ' ' .  strtoupper($name) . ' ' . $firstname . ',</p>';
 }
 
-$formattedNameAndFirstname = format('Soyer', 'Alex');
+$formattedNameAndFirstname = format('Soyer', 'Alex', false);
 
 echo $formattedNameAndFirstname;
 
